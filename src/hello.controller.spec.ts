@@ -16,6 +16,7 @@ describe('HelloController', () => {
     expect(helloController.getHello()).toBe('Hello World!');
   });
 
+  // 動いたらしい
   it('should not return empty string', () => {
     expect(helloController.getHello()).not.toBe("");
   });
