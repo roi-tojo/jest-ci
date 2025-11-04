@@ -1,3 +1,6 @@
+  it('should fail: 1 + 1 = 3', () => {
+    expect(1 + 1).toBe(3);
+  });
 import { Test, TestingModule } from '@nestjs/testing';
 import { HelloController } from './hello.controller';
 
