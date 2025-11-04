@@ -16,7 +16,11 @@ describe('HelloController', () => {
     expect(helloController.getHello()).toBe('Hello World!');
   });
 
+  // 動いたらしい
   it('should not return empty string', () => {
     expect(helloController.getHello()).not.toBe("");
   });
 });
+  it('should fail: 1 + 1 = 4', () => {
+    expect(1 + 1).toBe(4);
+  });

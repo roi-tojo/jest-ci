@@ -1,15 +1,17 @@
 name: Run npm test
-
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     name: Run test codes
     if: |
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -18,6 +20,6 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: npm install
+        run: npm ci 
       - name: Run tests
         run: npm run test
